@@ -1,0 +1,821 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LumenAgro | Consultoría en Datos & Soluciones AgTech</title>
+    <meta name="description" content="El faro que tu campo necesita. Consultoría en datos agrícolas y comercialización de soluciones AgTech para optimizar la toma de decisiones.">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            50: '#f2f8f1',
+                            100: '#e1efe0',
+                            200: '#c4e0c1',
+                            300: '#9bc897',
+                            400: '#6da968',
+                            500: '#488c43',
+                            600: '#2b6628', /* Verde Principal */
+                            700: '#255623',
+                            800: '#1b4317', /* Verde Oscuro */
+                            900: '#163813',
+                            accent: '#76bc29' /* Verde Brillante */
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="bg-slate-50 text-slate-800 font-sans antialiased selection:bg-brand-500 selection:text-white">
+
+    <!-- Header / Navbar -->
+    <header class="fixed top-0 left-0 w-full z-50 bg-white/90 backdrop-blur-md border-b border-slate-100 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            <!-- Brand Logo -->
+            <a href="#" class="flex items-center gap-3 group">
+                <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-brand-600 to-brand-800 flex items-center justify-center text-white shadow-md shadow-brand-600/20 group-hover:scale-105 transition-transform">
+                    <i data-lucide="lighthouse" class="w-6 h-6 text-brand-accent"></i>
+                </div>
+                <div>
+                    <span class="text-xl font-extrabold tracking-tight text-slate-900 block leading-none">LUMEN<span class="text-brand-600">AGRO</span></span>
+                    <span class="text-[10px] font-semibold text-brand-600 uppercase tracking-widest block mt-0.5">El faro que tu campo necesita</span>
+                </div>
+            </a>
+
+            <!-- Desktop Nav -->
+            <nav class="hidden md:flex items-center gap-8 text-sm font-semibold text-slate-600">
+                <a href="#inicio" class="hover:text-brand-600 transition-colors">Inicio</a>
+                <a href="#problema" class="hover:text-brand-600 transition-colors">El Desafío</a>
+                <a href="#consultoria" class="hover:text-brand-600 transition-colors">Consultoría de Datos</a>
+                <a href="#planes" class="hover:text-brand-600 transition-colors">Planes</a>
+                <a href="#agtech" class="hover:text-brand-600 transition-colors">Soluciones AgTech</a>
+                <a href="#casos" class="hover:text-brand-600 transition-colors">Casos de Éxito</a>
+            </nav>
+
+            <!-- CTA Header Button -->
+            <div class="hidden md:flex items-center gap-4">
+                <a href="#contacto" class="bg-brand-600 hover:bg-brand-700 text-white px-5 py-2.5 rounded-xl font-semibold text-sm shadow-md shadow-brand-600/20 hover:shadow-lg transition-all flex items-center gap-2 group">
+                    <span>Agendar Diagnóstico</span>
+                    <i data-lucide="arrow-right" class="w-4 h-4 group-hover:translate-x-1 transition-transform"></i>
+                </a>
+            </div>
+
+            <!-- Mobile Menu Toggle -->
+            <button id="mobile-menu-btn" class="md:hidden p-2 rounded-lg text-slate-600 hover:bg-slate-100">
+                <i data-lucide="menu" class="w-6 h-6"></i>
+            </button>
+        </div>
+
+        <!-- Mobile Menu Drawer -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-b border-slate-200 px-4 pt-2 pb-6 space-y-3">
+            <a href="#inicio" class="block py-2 text-slate-700 font-medium border-b border-slate-100">Inicio</a>
+            <a href="#problema" class="block py-2 text-slate-700 font-medium border-b border-slate-100">El Desafío</a>
+            <a href="#consultoria" class="block py-2 text-slate-700 font-medium border-b border-slate-100">Consultoría de Datos</a>
+            <a href="#planes" class="block py-2 text-slate-700 font-medium border-b border-slate-100">Planes</a>
+            <a href="#agtech" class="block py-2 text-slate-700 font-medium border-b border-slate-100">Soluciones AgTech</a>
+            <a href="#casos" class="block py-2 text-slate-700 font-medium border-b border-slate-100">Casos de Éxito</a>
+            <a href="#contacto" class="block w-full text-center bg-brand-600 text-white py-3 rounded-xl font-semibold mt-4">Agendar Diagnóstico</a>
+        </div>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section id="inicio" class="pt-32 pb-20 md:pt-40 md:pb-28 bg-gradient-to-b from-brand-50/60 via-slate-50 to-white relative overflow-hidden">
+        <!-- Abstract Background Ornaments -->
+        <div class="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-brand-200/30 rounded-full blur-3xl pointer-events-none"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="text-center max-w-3xl mx-auto">
+                <!-- Badge Slogan -->
+                <div class="inline-flex items-center gap-2 bg-brand-100 text-brand-800 border border-brand-200/80 px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider mb-6 shadow-sm">
+                    <i data-lucide="sparkles" class="w-3.5 h-3.5 text-brand-600"></i>
+                    <span>El faro que tu campo necesita</span>
+                </div>
+
+                <!-- Hero Title -->
+                <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-slate-900 tracking-tight leading-[1.15] mb-6">
+                    Consultoría en datos y tecnología para optimizar la toma de decisiones en el agro.
+                </h1>
+
+                <!-- Hero Subtitle -->
+                <p class="text-lg sm:text-xl text-slate-600 font-normal leading-relaxed mb-10">
+                    Acompañamos a productores y empresas agropecuarias a transformar datos dispersos en decisiones rentables.
+                </p>
+
+                <!-- Hero CTAs -->
+                <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+                    <a href="#consultoria" class="w-full sm:w-auto bg-brand-600 hover:bg-brand-700 text-white px-8 py-4 rounded-xl font-bold text-base shadow-lg shadow-brand-600/25 hover:shadow-xl transition-all flex items-center justify-center gap-3">
+                        <i data-lucide="bar-chart-3" class="w-5 h-5"></i>
+                        <span>Conocer Consultoría de Datos</span>
+                    </a>
+                    <a href="#agtech" class="w-full sm:w-auto bg-white hover:bg-slate-50 text-slate-800 border border-slate-200 px-8 py-4 rounded-xl font-bold text-base shadow-sm hover:shadow transition-all flex items-center justify-center gap-3">
+                        <i data-lucide="cpu" class="w-5 h-5 text-brand-600"></i>
+                        <span>Explorar Solución AgTech (AGDP)</span>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Main Feature Highlights (Cards) -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-16 max-w-4xl mx-auto">
+                <div class="bg-white p-6 sm:p-8 rounded-2xl border border-slate-100 shadow-xl shadow-slate-200/50 hover:border-brand-200 transition-all group">
+                    <div class="w-12 h-12 rounded-xl bg-brand-100 text-brand-700 flex items-center justify-center mb-5 group-hover:scale-110 transition-transform">
+                        <i data-lucide="database" class="w-6 h-6"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-900 mb-2">1. Consultoría en Datos</h3>
+                    <p class="text-slate-600 text-sm leading-relaxed mb-4">
+                        Del caos de planillas a la claridad total: relevamiento offline a campo, arquitectura en la nube y tableros interactivos a medida.
+                    </p>
+                    <a href="#consultoria" class="text-brand-600 font-bold text-sm inline-flex items-center gap-1 hover:gap-2 transition-all">
+                        Ver metodología <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                    </a>
+                </div>
+
+                <div class="bg-white p-6 sm:p-8 rounded-2xl border border-slate-100 shadow-xl shadow-slate-200/50 hover:border-brand-200 transition-all group">
+                    <div class="w-12 h-12 rounded-xl bg-emerald-100 text-emerald-700 flex items-center justify-center mb-5 group-hover:scale-110 transition-transform">
+                        <i data-lucide="radio" class="w-6 h-6"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-900 mb-2">2. Soluciones AgTech</h3>
+                    <p class="text-slate-600 text-sm leading-relaxed mb-4">
+                        Comercialización del sistema <strong>AGDP de Corvus®</strong>: monitoreo en tiempo real del movimiento de granos desde la cosecha hasta el acopio.
+                    </p>
+                    <a href="#agtech" class="text-brand-600 font-bold text-sm inline-flex items-center gap-1 hover:gap-2 transition-all">
+                        Ver tecnología AGDP <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION: EL PROBLEMA (PROBLEM STATEMENT) -->
+    <section id="problema" class="py-20 bg-white border-y border-slate-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <h2 class="text-xs font-bold uppercase tracking-widest text-red-600 mb-2">El Origen del Problema</h2>
+                <h3 class="text-3xl sm:text-4xl font-extrabold text-slate-900">Información desordenada en el campo</h3>
+                <p class="text-slate-600 mt-4 text-base sm:text-lg">
+                    Cuando los datos no están organizados, tomar buenas decisiones se vuelve un desafío constante.
+                </p>
+            </div>
+
+            <!-- 4 Pain Points Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- Pain Card 1 -->
+                <div class="bg-red-50/50 border border-red-100 p-6 rounded-2xl relative overflow-hidden">
+                    <div class="w-10 h-10 rounded-full bg-red-100 text-red-600 flex items-center justify-center font-bold mb-4">
+                        <i data-lucide="x-circle" class="w-6 h-6"></i>
+                    </div>
+                    <h4 class="text-lg font-bold text-slate-900 mb-2">Datos Dispersos</h4>
+                    <p class="text-slate-600 text-sm leading-relaxed">
+                        Información fragmentada en diversos formatos, orígenes y cuadernos sin conexión centralizada.
+                    </p>
+                </div>
+
+                <!-- Pain Card 2 -->
+                <div class="bg-red-50/50 border border-red-100 p-6 rounded-2xl relative overflow-hidden">
+                    <div class="w-10 h-10 rounded-full bg-red-100 text-red-600 flex items-center justify-center font-bold mb-4">
+                        <i data-lucide="alert-triangle" class="w-6 h-6"></i>
+                    </div>
+                    <h4 class="text-lg font-bold text-slate-900 mb-2">Estandarización Débil</h4>
+                    <p class="text-slate-600 text-sm leading-relaxed">
+                        Reglas poco definidas para registrar labores, insumos y tiempos, lo que dificulta comparar campañas.
+                    </p>
+                </div>
+
+                <!-- Pain Card 3 -->
+                <div class="bg-red-50/50 border border-red-100 p-6 rounded-2xl relative overflow-hidden">
+                    <div class="w-10 h-10 rounded-full bg-red-100 text-red-600 flex items-center justify-center font-bold mb-4">
+                        <i data-lucide="file-x" class="w-6 h-6"></i>
+                    </div>
+                    <h4 class="text-lg font-bold text-slate-900 mb-2">Datos Inconsistentes</h4>
+                    <p class="text-slate-600 text-sm leading-relaxed">
+                        Información incompleta, errónea o duplicada que confunde a la hora de calcular el margen real.
+                    </p>
+                </div>
+
+                <!-- Pain Card 4 -->
+                <div class="bg-red-50/50 border border-red-100 p-6 rounded-2xl relative overflow-hidden">
+                    <div class="w-10 h-10 rounded-full bg-red-100 text-red-600 flex items-center justify-center font-bold mb-4">
+                        <i data-lucide="clock" class="w-6 h-6"></i>
+                    </div>
+                    <h4 class="text-lg font-bold text-slate-900 mb-2">Integración Limitada</h4>
+                    <p class="text-slate-600 text-sm leading-relaxed">
+                        Planillas Excel desconectadas que generan trabajo manual repetitivo y pérdida de tiempo operativo.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION: METODOLOGÍA CONSULTORÍA (3 PASOS) -->
+    <section id="consultoria" class="py-20 bg-slate-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-xs font-bold uppercase tracking-widest text-brand-600 bg-brand-100 px-3 py-1 rounded-full">Metodología de Trabajo</span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 mt-4">¿Cómo ordenamos tu información?</h2>
+                <p class="text-slate-600 mt-3 text-base sm:text-lg">
+                    Construimos un flujo limpio y automatizado adaptado a la realidad operativa de tu establecimiento.
+                </p>
+            </div>
+
+            <!-- Steps Grid -->
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 relative">
+                <!-- Step 1 -->
+                <div class="bg-white p-8 rounded-2xl border border-slate-200/80 shadow-sm hover:shadow-md transition-all relative">
+                    <div class="w-12 h-12 rounded-xl bg-brand-600 text-white flex items-center justify-center font-extrabold text-xl mb-6 shadow-md shadow-brand-600/20">
+                        1
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-900 mb-3">Relevamiento y Estructuración de Datos</h3>
+                    <p class="text-brand-700 font-semibold text-sm mb-4">Organizamos lo que ya tenés</p>
+                    <ul class="space-y-3 text-slate-600 text-sm">
+                        <li class="flex items-start gap-2">
+                            <i data-lucide="check-circle-2" class="w-5 h-5 text-brand-600 shrink-0 mt-0.5"></i>
+                            <span><strong>Limpieza y depuración:</strong> Eliminamos errores, duplicados y registros incompletos.</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <i data-lucide="check-circle-2" class="w-5 h-5 text-brand-600 shrink-0 mt-0.5"></i>
+                            <span><strong>Normalización:</strong> Unificamos formatos, nombres y criterios para que todo hable el mismo idioma.</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <i data-lucide="check-circle-2" class="w-5 h-5 text-brand-600 shrink-0 mt-0.5"></i>
+                            <span><strong>Integración de fuentes:</strong> Conectamos tus planillas e inputs en una base única y confiable.</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Step 2 -->
+                <div class="bg-white p-8 rounded-2xl border border-slate-200/80 shadow-sm hover:shadow-md transition-all relative">
+                    <div class="w-12 h-12 rounded-xl bg-brand-600 text-white flex items-center justify-center font-extrabold text-xl mb-6 shadow-md shadow-brand-600/20">
+                        2
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-900 mb-3">Captura Inteligente a Campo (Offline)</h3>
+                    <p class="text-brand-700 font-semibold text-sm mb-4">Cero errores en la toma de datos</p>
+                    <ul class="space-y-3 text-slate-600 text-sm">
+                        <li class="flex items-start gap-2">
+                            <i data-lucide="check-circle-2" class="w-5 h-5 text-brand-600 shrink-0 mt-0.5"></i>
+                            <span><strong>Funcionamiento Offline:</strong> Carga directa a campo mediante Apps móviles incluso sin señal celular.</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <i data-lucide="check-circle-2" class="w-5 h-5 text-brand-600 shrink-0 mt-0.5"></i>
+                            <span><strong>Lógica de "Carga Única":</strong> Imputación automática de lotes con geolocalización GPS.</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <i data-lucide="check-circle-2" class="w-5 h-5 text-brand-600 shrink-0 mt-0.5"></i>
+                            <span><strong>Escalabilidad:</strong> Información auditable, trazable y lista para análisis sin tareas extras.</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Step 3 -->
+                <div class="bg-white p-8 rounded-2xl border border-slate-200/80 shadow-sm hover:shadow-md transition-all relative">
+                    <div class="w-12 h-12 rounded-xl bg-brand-600 text-white flex items-center justify-center font-extrabold text-xl mb-6 shadow-md shadow-brand-600/20">
+                        3
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-900 mb-3">Dashboards de Control Personalizados</h3>
+                    <p class="text-brand-700 font-semibold text-sm mb-4">Visualizá lo que realmente importa</p>
+                    <ul class="space-y-3 text-slate-600 text-sm">
+                        <li class="flex items-start gap-2">
+                            <i data-lucide="check-circle-2" class="w-5 h-5 text-brand-600 shrink-0 mt-0.5"></i>
+                            <span><strong>Tableros a Medida:</strong> Diseñados exactamente con los KPIs que vos necesitás controlar.</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <i data-lucide="check-circle-2" class="w-5 h-5 text-brand-600 shrink-0 mt-0.5"></i>
+                            <span><strong>Claros y Simples:</strong> Sin información de más. Cualquiera de tu equipo puede usarlos fácilmente.</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <i data-lucide="check-circle-2" class="w-5 h-5 text-brand-600 shrink-0 mt-0.5"></i>
+                            <span><strong>Acción Oportuna:</strong> Información actualizada para ajustar labores y decisiones a tiempo.</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Ecosystem Compatibility Note -->
+            <div class="mt-12 bg-white rounded-2xl p-6 border border-slate-200 flex flex-col md:flex-row items-center justify-between gap-6 shadow-sm">
+                <div class="flex items-center gap-4">
+                    <div class="w-12 h-12 rounded-full bg-slate-100 flex items-center justify-center text-slate-700 shrink-0">
+                        <i data-lucide="layers" class="w-6 h-6"></i>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-slate-900">Adaptable a tu entorno tecnológico</h4>
+                        <p class="text-sm text-slate-600">Trabajamos e integramos con Google Workspace, Microsoft 365 / Power BI, AppSheet, Looker Studio o tu infraestructura actual.</p>
+                    </div>
+                </div>
+                <span class="text-xs font-semibold uppercase tracking-wider text-slate-400 bg-slate-100 px-4 py-2 rounded-lg shrink-0">100% Multiplataforma</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION: PLANES Y ALCANCE (PRICING & SCOPE) -->
+    <section id="planes" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-xs font-bold uppercase tracking-widest text-brand-600 bg-brand-100 px-3 py-1 rounded-full">Planes Adaptados</span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 mt-4">Alcance de Servicios de Consultoría</h2>
+                <p class="text-slate-600 mt-3 text-base sm:text-lg">
+                    Elegí el nivel de acompañamiento que mejor se ajuste al volumen y complejidad de tu empresa.
+                </p>
+            </div>
+
+            <!-- Planes Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 items-stretch">
+                <!-- Plan Básico -->
+                <div class="bg-slate-50 rounded-2xl p-8 border border-slate-200 flex flex-col justify-between hover:border-brand-300 transition-all">
+                    <div>
+                        <div class="text-brand-600 font-bold text-sm uppercase tracking-wider mb-2">Plan Básico</div>
+                        <h3 class="text-2xl font-extrabold text-slate-900 mb-1">Visualización & KPIs</h3>
+                        <p class="text-sm text-slate-500 mb-6">Ideal para establecimientos que buscan ordenar e interpretar sus métricas clave.</p>
+                        
+                        <div class="text-3xl font-extrabold text-slate-900 mb-6">
+                            Desde USD 200 <span class="text-xs font-normal text-slate-500">/ proyecto</span>
+                        </div>
+
+                        <div class="border-t border-slate-200 pt-6 mb-8 space-y-3">
+                            <div class="flex items-center gap-3 text-sm text-slate-700">
+                                <i data-lucide="check" class="w-5 h-5 text-brand-600 shrink-0"></i>
+                                <span>Definición Estratégica de KPIs</span>
+                            </div>
+                            <div class="flex items-center gap-3 text-sm text-slate-700">
+                                <i data-lucide="check" class="w-5 h-5 text-brand-600 shrink-0"></i>
+                                <span>Construcción de Tableros Dinámicos</span>
+                            </div>
+                            <div class="flex items-center gap-3 text-sm text-slate-400 line-through">
+                                <i data-lucide="minus" class="w-5 h-5 shrink-0"></i>
+                                <span>Bases de datos SQL centralizadas</span>
+                            </div>
+                            <div class="flex items-center gap-3 text-sm text-slate-400 line-through">
+                                <i data-lucide="minus" class="w-5 h-5 shrink-0"></i>
+                                <span>Desarrollo de Apps Offline</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <a href="#contacto" data-plan="Básico" class="plan-btn w-full bg-white hover:bg-slate-100 text-slate-900 font-bold py-3 px-4 rounded-xl border border-slate-300 text-center transition-all block">
+                        Solicitar Plan Básico
+                    </a>
+                </div>
+
+                <!-- Plan Medio (Destacado) -->
+                <div class="bg-gradient-to-b from-brand-900 to-brand-800 rounded-2xl p-8 border-2 border-brand-500 text-white flex flex-col justify-between shadow-xl shadow-brand-900/20 relative">
+                    <div class="absolute -top-4 left-1/2 -translate-x-1/2 bg-brand-accent text-slate-900 text-xs font-extrabold uppercase tracking-widest px-4 py-1.5 rounded-full shadow-md">
+                        Más Solicitado
+                    </div>
+
+                    <div>
+                        <div class="text-brand-300 font-bold text-sm uppercase tracking-wider mb-2 mt-2">Plan Medio</div>
+                        <h3 class="text-2xl font-extrabold text-white mb-1">Gestión & Seguridad de Datos</h3>
+                        <p class="text-sm text-brand-100 mb-6">Para empresas que requieren estructurar bases de datos seguras y procesos ETL.</p>
+                        
+                        <div class="text-3xl font-extrabold text-white mb-6">
+                            Desde USD 800 <span class="text-xs font-normal text-brand-200">/ proyecto</span>
+                        </div>
+
+                        <div class="border-t border-brand-700/60 pt-6 mb-8 space-y-3">
+                            <div class="flex items-center gap-3 text-sm text-brand-50">
+                                <i data-lucide="check" class="w-5 h-5 text-brand-accent shrink-0"></i>
+                                <span>Todo lo incluido en el Plan Básico</span>
+                            </div>
+                            <div class="flex items-center gap-3 text-sm text-brand-50">
+                                <i data-lucide="check" class="w-5 h-5 text-brand-accent shrink-0"></i>
+                                <span>Bases de Datos Centralizadas y Seguras</span>
+                            </div>
+                            <div class="flex items-center gap-3 text-sm text-brand-50">
+                                <i data-lucide="check" class="w-5 h-5 text-brand-accent shrink-0"></i>
+                                <span>Ingeniería de Datos (SQL & Limpieza ETL)</span>
+                            </div>
+                            <div class="flex items-center gap-3 text-sm text-brand-50">
+                                <i data-lucide="check" class="w-5 h-5 text-brand-accent shrink-0"></i>
+                                <span>Seguridad y Permisos de Usuario</span>
+                            </div>
+                            <div class="flex items-center gap-3 text-sm text-brand-300/60 line-through">
+                                <i data-lucide="minus" class="w-5 h-5 shrink-0"></i>
+                                <span>Automatización con Python & Apps</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <a href="#contacto" data-plan="Medio" class="plan-btn w-full bg-brand-accent hover:bg-lime-400 text-slate-900 font-extrabold py-3.5 px-4 rounded-xl text-center shadow-lg transition-all block">
+                        Solicitar Plan Medio
+                    </a>
+                </div>
+
+                <!-- Plan Avanzado -->
+                <div class="bg-slate-50 rounded-2xl p-8 border border-slate-200 flex flex-col justify-between hover:border-brand-300 transition-all">
+                    <div>
+                        <div class="text-brand-600 font-bold text-sm uppercase tracking-wider mb-2">Plan Avanzado</div>
+                        <h3 class="text-2xl font-extrabold text-slate-900 mb-1">Integración & Apps Custom</h3>
+                        <p class="text-sm text-slate-500 mb-6">Solución integral a medida con automatización Python y captura offline AppSheet.</p>
+                        
+                        <div class="text-3xl font-extrabold text-slate-900 mb-6">
+                            A medida <span class="text-xs font-normal text-slate-500">(Cotización)</span>
+                        </div>
+
+                        <div class="border-t border-slate-200 pt-6 mb-8 space-y-3">
+                            <div class="flex items-center gap-3 text-sm text-slate-700">
+                                <i data-lucide="check" class="w-5 h-5 text-brand-600 shrink-0"></i>
+                                <span>Todo lo del Plan Medio incluido</span>
+                            </div>
+                            <div class="flex items-center gap-3 text-sm text-slate-700">
+                                <i data-lucide="check" class="w-5 h-5 text-brand-600 shrink-0"></i>
+                                <span>Integración de APIs y Software Unificado</span>
+                            </div>
+                            <div class="flex items-center gap-3 text-sm text-slate-700">
+                                <i data-lucide="check" class="w-5 h-5 text-brand-600 shrink-0"></i>
+                                <span>Automatización con Scripts de Python</span>
+                            </div>
+                            <div class="flex items-center gap-3 text-sm text-slate-700">
+                                <i data-lucide="check" class="w-5 h-5 text-brand-600 shrink-0"></i>
+                                <span>Desarrollo de Apps Offline (AppSheet)</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <a href="#contacto" data-plan="Avanzado" class="plan-btn w-full bg-white hover:bg-slate-100 text-slate-900 font-bold py-3 px-4 rounded-xl border border-slate-300 text-center transition-all block">
+                        Cotizar Plan Avanzado
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION: SOLUCIONES AGTECH (AGDP CORVUS + PROVEEDORES) -->
+    <section id="agtech" class="py-20 bg-slate-900 text-white relative overflow-hidden">
+        <!-- Glow accents -->
+        <div class="absolute top-0 right-0 w-96 h-96 bg-brand-600/20 rounded-full blur-3xl pointer-events-none"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-xs font-bold uppercase tracking-widest text-brand-accent bg-brand-900/80 px-3 py-1 rounded-full border border-brand-700">Soluciones AgTech</span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-white mt-4">Tecnología de Vanguardia Comercializada</h2>
+                <p class="text-slate-300 mt-3 text-base sm:text-lg">
+                    Representamos e integramos herramientas tecnológicas líderes para elevar la precisión operativa en el campo.
+                </p>
+            </div>
+
+            <!-- Featured Product Card: AGDP Corvus -->
+            <div class="bg-slate-800/80 rounded-3xl border border-slate-700 p-8 sm:p-10 backdrop-blur-sm shadow-2xl mb-12">
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+                    <div class="lg:col-span-7">
+                        <div class="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-brand-accent bg-brand-900/60 px-3 py-1 rounded-md mb-4 border border-brand-800">
+                            <i data-lucide="shield-check" class="w-4 h-4"></i>
+                            Representante Oficial Corvus®
+                        </div>
+                        <h3 class="text-3xl font-extrabold text-white mb-2">AGDP — Monitoreo de Granos en Tiempo Real</h3>
+                        <p class="text-slate-300 text-base leading-relaxed mb-6">
+                            Transformá el control de cosecha, transporte y acopio. AGDP brinda trazabilidad absoluta e instantánea sobre cada movimiento de grano, eliminando pérdidas e incertidumbre.
+                        </p>
+
+                        <div class="space-y-3 mb-8">
+                            <div class="flex items-start gap-3">
+                                <div class="w-6 h-6 rounded-full bg-brand-500/20 text-brand-accent flex items-center justify-center shrink-0 mt-0.5">
+                                    <i data-lucide="check" class="w-4 h-4"></i>
+                                </div>
+                                <span class="text-sm text-slate-200"><strong>Trazabilidad Tolva - Camión - Acopio:</strong> Registro exacto de cargas desde el lote en tiempo real.</span>
+                            </div>
+                            <div class="flex items-start gap-3">
+                                <div class="w-6 h-6 rounded-full bg-brand-500/20 text-brand-accent flex items-center justify-center shrink-0 mt-0.5">
+                                    <i data-lucide="check" class="w-4 h-4"></i>
+                                </div>
+                                <span class="text-sm text-slate-200"><strong>Alertas Antidesviaciones:</strong> Detección instantánea de pesajes anómalos o descargas no autorizadas.</span>
+                            </div>
+                            <div class="flex items-start gap-3">
+                                <div class="w-6 h-6 rounded-full bg-brand-500/20 text-brand-accent flex items-center justify-center shrink-0 mt-0.5">
+                                    <i data-lucide="check" class="w-4 h-4"></i>
+                                </div>
+                                <span class="text-sm text-slate-200"><strong>Integración con BI:</strong> Exportación directa de datos sin planillas manuales a tus tableros de gestión.</span>
+                            </div>
+                        </div>
+
+                        <a href="#contacto" data-tech="AGDP Corvus" class="tech-btn inline-flex items-center gap-2 bg-brand-accent hover:bg-lime-400 text-slate-900 font-extrabold px-6 py-3.5 rounded-xl shadow-lg transition-all">
+                            <span>Solicitar Demostración de AGDP</span>
+                            <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                        </a>
+                    </div>
+
+                    <!-- Visual Representation Box -->
+                    <div class="lg:col-span-5 bg-gradient-to-br from-slate-900 to-slate-800 p-6 rounded-2xl border border-slate-700 text-center relative">
+                        <div class="w-16 h-16 rounded-2xl bg-brand-600/30 text-brand-accent mx-auto flex items-center justify-center mb-4 border border-brand-500/30">
+                            <i data-lucide="truck" class="w-8 h-8"></i>
+                        </div>
+                        <h4 class="text-lg font-bold text-white mb-1">Control de Flujo de Granos</h4>
+                        <p class="text-xs text-slate-400 mb-6">Monitoreo continuo en cosecha y logística</p>
+                        
+                        <div class="bg-slate-950 p-4 rounded-xl border border-slate-800 text-left space-y-2 text-xs text-slate-300">
+                            <div class="flex justify-between items-center border-b border-slate-800 pb-2">
+                                <span class="text-slate-400">Estado de Carga:</span>
+                                <span class="text-emerald-400 font-bold">En Monitoreo Activo</span>
+                            </div>
+                            <div class="flex justify-between items-center border-b border-slate-800 pb-2">
+                                <span class="text-slate-400">Trazabilidad:</span>
+                                <span class="text-white font-mono">Lote 14 $\rightarrow$ Tolva #2 $\rightarrow$ Camión</span>
+                            </div>
+                            <div class="flex justify-between items-center">
+                                <span class="text-slate-400">Alertas:</span>
+                                <span class="text-brand-accent font-semibold">0 Anomalias detectadas</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Provider Partnership Callout Banner -->
+            <div class="bg-gradient-to-r from-brand-900 to-slate-800 rounded-2xl p-8 border border-brand-700/60 flex flex-col md:flex-row items-center justify-between gap-6 shadow-xl">
+                <div class="flex items-start gap-4">
+                    <div class="w-12 h-12 rounded-xl bg-brand-500/20 text-brand-accent flex items-center justify-center shrink-0 border border-brand-500/30">
+                        <i data-lucide="handshake" class="w-6 h-6"></i>
+                    </div>
+                    <div>
+                        <h4 class="text-lg font-bold text-white">¿Desarrollás o representás tecnología para el agro?</h4>
+                        <p class="text-sm text-slate-300 mt-1 max-w-2xl">
+                            Buscamos ampliar nuestro portfolio con soluciones innovadoras. Si querés que <strong>LumenAgro</strong> sea tu distribuidor y canal comercial en la región, hablemos.
+                        </p>
+                    </div>
+                </div>
+                <a href="#contacto" data-subject="Alianza Comercial AgTech" class="partner-btn shrink-0 bg-white hover:bg-slate-100 text-slate-900 font-bold px-6 py-3 rounded-xl transition-all text-sm">
+                    Proponer mi Tecnología
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION: CASOS DE ÉXITO & TABLEROS (LOOKER STUDIO) -->
+    <section id="casos" class="py-20 bg-slate-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-xs font-bold uppercase tracking-widest text-brand-600 bg-brand-100 px-3 py-1 rounded-full">Casos de Éxito</span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 mt-4">Resultados Reales en Números y Tableros</h2>
+                <p class="text-slate-600 mt-3 text-base sm:text-lg">
+                    Optimizá la gestión operativa con cuadros de mando claros y métricas auditables.
+                </p>
+            </div>
+
+            <!-- Stats Bar -->
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 mb-16">
+                <div class="bg-white p-6 rounded-2xl border border-slate-200 text-center shadow-sm">
+                    <div class="text-4xl sm:text-5xl font-extrabold text-brand-600 mb-2">+18.000</div>
+                    <div class="text-slate-700 font-bold text-sm">Hectáreas Auditadas</div>
+                    <div class="text-slate-400 text-xs mt-1">Control de labores y superficies en tiempo real</div>
+                </div>
+
+                <div class="bg-white p-6 rounded-2xl border border-slate-200 text-center shadow-sm">
+                    <div class="text-4xl sm:text-5xl font-extrabold text-brand-600 mb-2">100%</div>
+                    <div class="text-slate-700 font-bold text-sm">Captura Offline a Campo</div>
+                    <div class="text-slate-400 text-xs mt-1">Eliminación de la redundancia y del papel</div>
+                </div>
+
+                <div class="bg-white p-6 rounded-2xl border border-slate-200 text-center shadow-sm">
+                    <div class="text-4xl sm:text-5xl font-extrabold text-brand-600 mb-2">KPIs</div>
+                    <div class="text-slate-700 font-bold text-sm">Trazabilidad Operativa</div>
+                    <div class="text-slate-400 text-xs mt-1">Calidad, insumos y capacidad operativa por maquinaria</div>
+                </div>
+            </div>
+
+            <!-- Interactive Projects / Dashboards Showcase -->
+            <div class="bg-white rounded-3xl border border-slate-200 overflow-hidden shadow-xl">
+                <div class="border-b border-slate-200 bg-slate-100/80 px-6 py-4 flex flex-wrap items-center justify-between gap-4">
+                    <div class="flex items-center gap-2">
+                        <span class="w-3 h-3 rounded-full bg-red-400 inline-block"></span>
+                        <span class="w-3 h-3 rounded-full bg-yellow-400 inline-block"></span>
+                        <span class="w-3 h-3 rounded-full bg-green-400 inline-block"></span>
+                        <span class="text-xs font-semibold text-slate-500 ml-2">Looker Studio / Power BI Interactive Showcase</span>
+                    </div>
+                    
+                    <!-- Dashboard Tabs -->
+                    <div class="flex gap-2" id="dashboard-tabs">
+                        <button data-tab="kpis" class="tab-btn active text-xs font-bold px-3 py-1.5 rounded-lg bg-brand-600 text-white transition-all">Productividad KPIs</button>
+                        <button data-tab="insumos" class="tab-btn text-xs font-bold px-3 py-1.5 rounded-lg bg-white text-slate-600 hover:bg-slate-200 transition-all">Gestión Insumos</button>
+                        <button data-tab="maquinaria" class="tab-btn text-xs font-bold px-3 py-1.5 rounded-lg bg-white text-slate-600 hover:bg-slate-200 transition-all">Tiempos Operativos</button>
+                    </div>
+                </div>
+
+                <!-- Tab Content Preview Area -->
+                <div class="p-6 sm:p-10">
+                    <div id="tab-kpis" class="tab-content space-y-6">
+                        <div class="flex flex-col lg:flex-row gap-8 items-center">
+                            <div class="lg:w-1/2 space-y-4">
+                                <span class="text-xs font-bold uppercase tracking-wider text-brand-600">Caso de Éxito #1</span>
+                                <h4 class="text-2xl font-bold text-slate-900">Análisis de KPIs para Optimización de Procesos</h4>
+                                <p class="text-slate-600 text-sm leading-relaxed">
+                                    Visualización integral de superficie trabajada (18.157 Has), horas de jornada vs. horas efectivas operativas y porcentaje de aprovisionamiento de tiempo (42%).
+                                </p>
+                                <div class="grid grid-cols-2 gap-4 pt-2">
+                                    <div class="bg-slate-50 p-3 rounded-xl border border-slate-200">
+                                        <div class="text-xs text-slate-500">Superficie Total</div>
+                                        <div class="text-lg font-bold text-slate-900">18.157 Has</div>
+                                    </div>
+                                    <div class="bg-slate-50 p-3 rounded-xl border border-slate-200">
+                                        <div class="text-xs text-slate-500">Calidad Operativa</div>
+                                        <div class="text-lg font-bold text-brand-600">59% Al Límite</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="lg:w-1/2 w-full bg-slate-900 text-white rounded-2xl p-6 shadow-inner border border-slate-800">
+                                <!-- Mocked Dashboard Graphic -->
+                                <div class="space-y-4">
+                                    <div class="flex justify-between items-center text-xs text-slate-400 border-b border-slate-800 pb-2">
+                                        <span>Dashboard: KPIs Operativos</span>
+                                        <span class="text-emerald-400">● En vivo</span>
+                                    </div>
+                                    <div class="grid grid-cols-3 gap-3 text-center">
+                                        <div class="bg-slate-800 p-3 rounded-xl">
+                                            <div class="text-xs text-slate-400">Días Totales</div>
+                                            <div class="text-xl font-bold text-white">203</div>
+                                        </div>
+                                        <div class="bg-slate-800 p-3 rounded-xl">
+                                            <div class="text-xs text-slate-400">Hs Jornada</div>
+                                            <div class="text-xl font-bold text-white">14.09</div>
+                                        </div>
+                                        <div class="bg-slate-800 p-3 rounded-xl">
+                                            <div class="text-xs text-slate-400">Hs Operativas</div>
+                                            <div class="text-xl font-bold text-brand-accent">5.92</div>
+                                        </div>
+                                    </div>
+                                    <div class="h-24 bg-slate-800/80 rounded-xl flex items-end justify-between p-3 gap-2">
+                                        <div class="w-full bg-brand-500/80 rounded-t h-1/2"></div>
+                                        <div class="w-full bg-brand-500/80 rounded-t h-3/4"></div>
+                                        <div class="w-full bg-brand-500/80 rounded-t h-full"></div>
+                                        <div class="w-full bg-brand-500/80 rounded-t h-2/3"></div>
+                                        <div class="w-full bg-brand-500/80 rounded-t h-5/6"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="tab-insumos" class="tab-content hidden space-y-6">
+                        <div class="flex flex-col lg:flex-row gap-8 items-center">
+                            <div class="lg:w-1/2 space-y-4">
+                                <span class="text-xs font-bold uppercase tracking-wider text-brand-600">Caso de Éxito #2</span>
+                                <h4 class="text-2xl font-bold text-slate-900">Control de Insumos y Logística de Aplicación</h4>
+                                <p class="text-slate-600 text-sm leading-relaxed">
+                                    Seguimiento en tiempo real de dosis de fitosanitarios y fertilizantes aplicados por lote vs. prescripciones agronómicas.
+                                </p>
+                            </div>
+                            <div class="lg:w-1/2 w-full bg-slate-900 text-white rounded-2xl p-6 shadow-inner border border-slate-800">
+                                <div class="space-y-3">
+                                    <div class="text-xs text-slate-400 border-b border-slate-800 pb-2">Distribución de Insumos por Cultivo</div>
+                                    <div class="bg-slate-800 p-4 rounded-xl flex justify-between items-center text-sm">
+                                        <span>Fertilizantes Solubles</span>
+                                        <span class="font-bold text-emerald-400">Optimizado (-12% desvío)</span>
+                                    </div>
+                                    <div class="bg-slate-800 p-4 rounded-xl flex justify-between items-center text-sm">
+                                        <span>Fitosanitarios Lote Sur</span>
+                                        <span class="font-bold text-brand-accent">100% Conforme</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="tab-maquinaria" class="tab-content hidden space-y-6">
+                        <div class="flex flex-col lg:flex-row gap-8 items-center">
+                            <div class="lg:w-1/2 space-y-4">
+                                <span class="text-xs font-bold uppercase tracking-wider text-brand-600">Caso de Éxito #3</span>
+                                <h4 class="text-2xl font-bold text-slate-900">Monitoreo de Eficiencia de Maquinaria y Contratistas</h4>
+                                <p class="text-slate-600 text-sm leading-relaxed">
+                                    Auditoría de capacidad operativa (ha/hs) y control de tiempos de traslado vs. tiempos de trabajo efectivo.
+                                </p>
+                            </div>
+                            <div class="lg:w-1/2 w-full bg-slate-900 text-white rounded-2xl p-6 shadow-inner border border-slate-800">
+                                <div class="space-y-3">
+                                    <div class="text-xs text-slate-400 border-b border-slate-800 pb-2">Capacidad Operativa Medida</div>
+                                    <div class="bg-slate-800 p-4 rounded-xl flex justify-between items-center text-sm">
+                                        <span>Rendimiento Real (ha/hs)</span>
+                                        <span class="font-bold text-white">0,68 ha/hs</span>
+                                    </div>
+                                    <div class="bg-slate-800 p-4 rounded-xl flex justify-between items-center text-sm">
+                                        <span>Potencial Teórico</span>
+                                        <span class="font-bold text-brand-accent">1,62 ha/hs</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION: CONTACTO (FORM + WHATSAPP INTEGRATION) -->
+    <section id="contacto" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+                <!-- Left Info Box -->
+                <div class="lg:col-span-5 space-y-6">
+                    <div class="inline-flex items-center gap-2 bg-brand-100 text-brand-800 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider">
+                        <i data-lucide="mail" class="w-3.5 h-3.5"></i>
+                        <span>Contacto Directo</span>
+                    </div>
+
+                    <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight">
+                        Hablemos sobre tu establecimiento
+                    </h2>
+
+                    <p class="text-slate-600 text-base leading-relaxed">
+                        Agendemos una llamada sin compromiso para evaluar el estado actual de tus datos o conocer más sobre el sistema <strong>AGDP de Corvus®</strong>.
+                    </p>
+
+                    <div class="space-y-4 pt-4">
+                        <div class="flex items-center gap-4">
+                            <div class="w-12 h-12 rounded-xl bg-brand-100 text-brand-700 flex items-center justify-center shrink-0">
+                                <i data-lucide="message-square" class="w-6 h-6"></i>
+                            </div>
+                            <div>
+                                <div class="text-xs text-slate-400 uppercase font-bold">WhatsApp Directo</div>
+                                <div class="text-slate-900 font-bold">Consultoría & Ventas AgTech</div>
+                            </div>
+                        </div>
+
+                        <div class="flex items-center gap-4">
+                            <div class="w-12 h-12 rounded-xl bg-brand-100 text-brand-700 flex items-center justify-center shrink-0">
+                                <i data-lucide="map-pin" class="w-6 h-6"></i>
+                            </div>
+                            <div>
+                                <div class="text-xs text-slate-400 uppercase font-bold">Ubicación</div>
+                                <div class="text-slate-900 font-bold">Argentina — Cobertura Regional</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Form Box -->
+                <div class="lg:col-span-7 bg-slate-50 p-8 sm:p-10 rounded-3xl border border-slate-200 shadow-sm">
+                    <form id="contact-form" class="space-y-5">
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                            <div>
+                                <label for="nombre" class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-2">Nombre completo *</label>
+                                <input type="text" id="nombre" required placeholder="Tu nombre" class="w-full bg-white border border-slate-300 rounded-xl px-4 py-3 text-sm text-slate-900 focus:outline-none focus:ring-2 focus:ring-brand-500 focus:border-brand-500 transition-all">
+                            </div>
+                            <div>
+                                <label for="empresa" class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-2">Empresa / Campo</label>
+                                <input type="text" id="empresa" placeholder="Nombre de tu establecimiento" class="w-full bg-white border border-slate-300 rounded-xl px-4 py-3 text-sm text-slate-900 focus:outline-none focus:ring-2 focus:ring-brand-500 focus:border-brand-500 transition-all">
+                            </div>
+                        </div>
+
+                        <div>
+                            <label for="servicio" class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-2">Área de interés *</label>
+                            <select id="servicio" required class="w-full bg-white border border-slate-300 rounded-xl px-4 py-3 text-sm text-slate-900 focus:outline-none focus:ring-2 focus:ring-brand-500 focus:border-brand-500 transition-all">
+                                <option value="Consultoría de Datos">Consultoría en Datos (Looker Studio / AppSheet)</option>
+                                <option value="Solución AGDP Corvus">Solución AgTech AGDP Corvus® (Granos)</option>
+                                <option value="Alianza Comercial AgTech">Propuesta de Alianza Comercial AgTech</option>
+                                <option value="Otro">Consulta General</option>
+                            </select>
+                        </div>
+
+                        <div>
+                            <label for="mensaje" class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-2">Mensaje / Detalle</label>
+                            <textarea id="mensaje" rows="4" placeholder="Contanos brevemente qué necesitas resolver..." class="w-full bg-white border border-slate-300 rounded-xl px-4 py-3 text-sm text-slate-900 focus:outline-none focus:ring-2 focus:ring-brand-500 focus:border-brand-500 transition-all"></textarea>
+                        </div>
+
+                        <button type="submit" class="w-full bg-brand-600 hover:bg-brand-700 text-white font-extrabold py-4 px-6 rounded-xl shadow-lg shadow-brand-600/20 hover:shadow-xl transition-all flex items-center justify-center gap-2 group text-base">
+                            <i data-lucide="send" class="w-5 h-5 group-hover:translate-x-1 transition-transform"></i>
+                            <span>Enviar Consulta por WhatsApp</span>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="bg-slate-950 text-slate-400 py-12 border-t border-slate-900">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between gap-6">
+            <div class="flex items-center gap-3">
+                <div class="w-8 h-8 rounded-lg bg-brand-600 flex items-center justify-center text-white">
+                    <i data-lucide="lighthouse" class="w-5 h-5 text-brand-accent"></i>
+                </div>
+                <span class="text-white font-extrabold tracking-tight">LUMEN<span class="text-brand-500">AGRO</span></span>
+            </div>
+
+            <p class="text-xs text-slate-500 text-center md:text-left">
+                © 2026 LumenAgro. Todos los derechos reservados. Consultoría en Datos & Soluciones AgTech.
+            </p>
+
+            <a href="#inicio" class="text-xs text-brand-400 hover:text-brand-300 flex items-center gap-1">
+                <span>Volver arriba</span>
+                <i data-lucide="arrow-up" class="w-3.5 h-3.5"></i>
+            </a>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="script.js"></script>
+    <script>
+        // Initialize Lucide Icons
+        lucide.createIcons();
+    </script>
+</body>
+</html>
