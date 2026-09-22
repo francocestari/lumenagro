@@ -1,0 +1,88 @@
+/* ═══════════════════════════════════════════════════════════════════════════
+   LUMENAGRO — STITCH DESIGN SYSTEM & AGTECH IOT ANIMATIONS
+   Paleta: Brand Green (#2b6628, #1b4317, #76bc29), Slate & Off-White
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+/* 1. Base & Smooth Scroll Setup */
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 35px;
+}
+
+section[id],
+div[id] {
+    scroll-margin-top: 35px;
+}
+
+/* Custom Scrollbar Ultra Nítida */
+::-webkit-scrollbar { width: 8px; }
+::-webkit-scrollbar-track { background: #f8fafc; }
+::-webkit-scrollbar-thumb { background: #2b6628; border-radius: 9999px; }
+::-webkit-scrollbar-thumb:hover { background: #1b4317; }
+
+/* Glassmorphism & Cards */
+.glass-card {
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(226, 232, 240, 0.8);
+}
+
+/* 2. Microinteracciones AgTech (Sensores IoT + Flujo de Datos) */
+
+/* Pulsos de señal de datos de campo / sensores */
+@keyframes sensorPulse {
+    0% {
+        box-shadow: 0 0 0 0 rgba(118, 188, 41, 0.4);
+    }
+    70% {
+        box-shadow: 0 0 0 12px rgba(118, 188, 41, 0);
+    }
+    100% {
+        box-shadow: 0 0 0 0 rgba(118, 188, 41, 0);
+    }
+}
+.pulse-sensor {
+    animation: sensorPulse 2.5s infinite ease-out;
+}
+
+/* Conexión y sincronización Campo-Nube */
+@keyframes dataBeam {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+.animated-data-gradient {
+    background-size: 200% 200%;
+    animation: dataBeam 6s ease infinite;
+}
+
+/* Resplandor sutil (Glow) */
+@keyframes pulseGlow {
+    0%, 100% { opacity: 0.3; transform: scale(1); }
+    50% { opacity: 0.7; transform: scale(1.04); }
+}
+.animate-glow { animation: pulseGlow 4s infinite ease-in-out; }
+
+/* Transición suave del carrusel */
+@keyframes slideReveal {
+    from { opacity: 0; transform: translateY(12px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+.carousel-slide-enter {
+    animation: slideReveal 0.36s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* Elevación de tarjetas Stitch */
+.stitch-card {
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.stitch-card:hover {
+    transform: translateY(-3px);
+}

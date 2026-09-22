@@ -1,0 +1,647 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LumenAgro | Comercialización AgTech & Consultoría en Datos</title>
+    <meta name="description" content="Comercialización AgTech y Consultoría en Datos para optimizar la toma de decisiones en el agro.">
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="favicon.png">
+    <link rel="shortcut icon" href="favicon.ico">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            50: '#f2f8f1',
+                            100: '#e1efe0',
+                            200: '#c4e0c1',
+                            300: '#9bc897',
+                            400: '#6da968',
+                            500: '#488c43',
+                            600: '#2b6628', /* Verde Principal */
+                            700: '#255623',
+                            800: '#1b4317', /* Verde Oscuro */
+                            900: '#163813',
+                            accent: '#76bc29' /* Verde Brillante */
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+                    },
+                    boxShadow: {
+                        'stitch': '0 10px 30px -10px rgba(0, 0, 0, 0.05), 0 4px 6px -2px rgba(0, 0, 0, 0.02)',
+                        'stitch-hover': '0 20px 40px -15px rgba(43, 102, 40, 0.12), 0 8px 16px -4px rgba(0, 0, 0, 0.04)',
+                        'glow': '0 0 25px -5px rgba(118, 188, 41, 0.3)',
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="bg-slate-50/50 text-slate-800 font-sans antialiased selection:bg-brand-600 selection:text-white">
+
+    <!-- Header / Navbar -->
+    <header class="fixed top-0 left-0 w-full z-50 bg-white/80 backdrop-blur-xl border-b border-slate-200/60 shadow-sm transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            <!-- Brand Logo Image & Web Slogan -->
+            <a href="#" class="flex flex-col items-start group py-1">
+                <img src="logo-transparent.png" alt="LumenAgro - El faro que tu campo necesita" class="h-10 sm:h-12 w-auto object-contain transition-transform group-hover:scale-[1.02]">
+                <span class="text-[9px] sm:text-[10px] font-extrabold uppercase tracking-widest text-brand-900/80 mt-0.5 leading-none group-hover:text-brand-600 transition-colors">
+                    El faro que tu campo necesita
+                </span>
+            </a>
+
+            <!-- Desktop Nav (Exact 3 Items + CTA) -->
+            <nav class="hidden md:flex items-center gap-8 text-sm font-semibold text-slate-600">
+                <a href="#problema" class="hover:text-brand-600 transition-colors relative py-1 after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-brand-600 hover:after:w-full after:transition-all">Consultoría en Datos</a>
+                <a href="#agtech" class="hover:text-brand-600 transition-colors relative py-1 after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-brand-600 hover:after:w-full after:transition-all">Soluciones AgTech</a>
+                <a href="#confian" class="hover:text-brand-600 transition-colors relative py-1 after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-brand-600 hover:after:w-full after:transition-all">Confían en nosotros</a>
+            </nav>
+
+            <!-- CTA Header Button ("Charlemos") -->
+            <div class="hidden md:flex items-center gap-4">
+                <a href="#contacto" class="bg-brand-600 hover:bg-brand-700 text-white px-5 py-2.5 rounded-full font-bold text-xs sm:text-sm shadow-md shadow-brand-600/20 hover:shadow-lg hover:shadow-brand-600/30 transition-all active:scale-95 flex items-center gap-2 group border border-brand-500/30">
+                    <span>Charlemos</span>
+                    <i data-lucide="arrow-right" class="w-4 h-4 group-hover:translate-x-1 transition-transform"></i>
+                </a>
+            </div>
+
+            <!-- Mobile Menu Toggle -->
+            <button id="mobile-menu-btn" class="md:hidden p-2 rounded-xl text-slate-600 hover:bg-slate-100/80 transition-colors">
+                <i data-lucide="menu" class="w-6 h-6"></i>
+            </button>
+        </div>
+
+        <!-- Mobile Menu Drawer -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white/95 backdrop-blur-2xl border-b border-slate-200 px-6 pt-3 pb-6 space-y-3 shadow-xl">
+            <a href="#problema" class="block py-2.5 text-slate-700 font-semibold border-b border-slate-100 hover:text-brand-600 transition-colors">Consultoría en Datos</a>
+            <a href="#agtech" class="block py-2.5 text-slate-700 font-semibold border-b border-slate-100 hover:text-brand-600 transition-colors">Soluciones AgTech</a>
+            <a href="#confian" class="block py-2.5 text-slate-700 font-semibold border-b border-slate-100 hover:text-brand-600 transition-colors">Confían en nosotros</a>
+            <a href="#contacto" class="block w-full text-center bg-brand-600 text-white py-3 rounded-xl font-bold mt-4 shadow-md shadow-brand-600/20">Charlemos</a>
+        </div>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section id="inicio" class="pt-32 pb-14 md:pt-40 md:pb-20 bg-gradient-to-b from-brand-50/50 via-slate-50/30 to-white relative overflow-hidden">
+        <!-- Background Ornaments -->
+        <div class="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] bg-brand-200/20 rounded-full blur-3xl pointer-events-none"></div>
+        <div class="absolute top-10 right-10 w-72 h-72 bg-brand-400/10 rounded-full blur-2xl pointer-events-none"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="text-center max-w-4xl mx-auto space-y-4">
+                <div class="inline-flex items-center gap-2.5 bg-brand-100/90 border border-brand-200/80 text-brand-900 px-4 py-1.5 rounded-full text-xs font-extrabold uppercase tracking-wider shadow-xs backdrop-blur-md">
+                    <span class="w-2.5 h-2.5 rounded-full bg-brand-accent pulse-sensor shrink-0"></span>
+                    <span>El Faro Digital del Agro</span>
+                </div>
+                <!-- Hero Title -->
+                <h1 class="text-4xl sm:text-5xl lg:text-6xl font-black text-slate-900 tracking-tight leading-tight sm:leading-none">
+                    Comercialización AgTech <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-600 to-brand-accent">&amp;</span> Consultoría en Datos
+                </h1>
+            </div>
+        </div>
+    </section>
+
+    <!-- CAROUSEL: Consultoría en Datos (3 slides) -->
+    <section id="problema" class="pt-6 pb-16 bg-white border-y border-slate-200/60 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+
+
+
+
+            <!-- Section Header Badge & Counter -->
+            <div class="flex flex-col items-center gap-3 mb-10 text-center">
+                <div class="inline-flex items-center gap-2 bg-brand-100 text-brand-800 px-3.5 py-1.5 rounded-full text-xs font-extrabold uppercase tracking-wider shadow-xs">
+                    <i data-lucide="bar-chart-3" class="w-3.5 h-3.5"></i>
+                    <span>Consultoría en Datos</span>
+                </div>
+                <div class="flex items-center gap-3 mt-1">
+                    <span id="carousel-counter" class="text-xs font-extrabold uppercase tracking-widest px-3 py-1 bg-brand-50 text-brand-700 rounded-full border border-brand-200/60 shadow-xs">1 de 3</span>
+                    <div class="flex items-center gap-2">
+                        <button onclick="carouselGoTo(0)" class="carousel-dot h-2.5 rounded-full transition-all duration-300 bg-brand-600 w-8 shadow-xs" aria-label="Slide 1"></button>
+                        <button onclick="carouselGoTo(1)" class="carousel-dot h-2.5 rounded-full transition-all duration-300 bg-slate-200 w-2.5 hover:bg-slate-300" aria-label="Slide 2"></button>
+                        <button onclick="carouselGoTo(2)" class="carousel-dot h-2.5 rounded-full transition-all duration-300 bg-slate-200 w-2.5 hover:bg-slate-300" aria-label="Slide 3"></label>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slides wrapper with arrows absolutely positioned at vertical center -->
+            <div class="relative px-4 sm:px-12">
+
+                <!-- Arrow Prev -->
+                <button id="carousel-prev" onclick="carouselMove(-1)" aria-label="Anterior"
+                    class="absolute -left-2 sm:left-0 top-1/2 -translate-y-1/2 z-10
+                           w-11 h-11 rounded-2xl bg-white border border-slate-200 shadow-lg shadow-slate-200/50
+                           flex items-center justify-center text-slate-600
+                           hover:bg-brand-600 hover:text-white hover:border-brand-600 transition-all hover:scale-105 active:scale-95
+                           disabled:opacity-20 disabled:pointer-events-none disabled:scale-100">
+                    <i data-lucide="chevron-left" class="w-5 h-5"></i>
+                </button>
+
+                <!-- Arrow Next -->
+                <button id="carousel-next" onclick="carouselMove(1)" aria-label="Siguiente"
+                    class="absolute -right-2 sm:right-0 top-1/2 -translate-y-1/2 z-10
+                           w-11 h-11 rounded-2xl bg-white border border-slate-200 shadow-lg shadow-slate-200/50
+                           flex items-center justify-center text-slate-600
+                           hover:bg-brand-600 hover:text-white hover:border-brand-600 transition-all hover:scale-105 active:scale-95
+                           disabled:opacity-20 disabled:pointer-events-none disabled:scale-100">
+                    <i data-lucide="chevron-right" class="w-5 h-5"></i>
+                </button>
+
+                <!-- SLIDE 1: El Origen del Problema -->
+                <div class="carousel-slide" id="slide-0">
+                    <h2 class="text-3xl sm:text-4xl font-black text-slate-900 text-center mb-10 tracking-tight">El Origen del Problema</h2>
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                        <div class="bg-red-50/50 border border-red-100/80 p-6 rounded-2xl hover:border-red-200/80 hover:shadow-stitch-hover transition-all duration-300 group">
+                            <div class="w-11 h-11 rounded-xl bg-red-100 text-red-600 flex items-center justify-center mb-4 border border-red-200/60 shadow-xs group-hover:scale-110 transition-transform">
+                                <i data-lucide="file-minus" class="w-5.5 h-5.5"></i>
+                            </div>
+                            <h4 class="text-lg font-bold text-slate-900 mb-2 group-hover:text-red-700 transition-colors">Ausencia de registros o criterio claro</h4>
+                            <p class="text-slate-600 text-sm leading-relaxed">Decisiones guiadas por la intuición y datos dispersos, sin estructura que permita analizar.</p>
+                        </div>
+                        <div class="bg-red-50/50 border border-red-100/80 p-6 rounded-2xl hover:border-red-200/80 hover:shadow-stitch-hover transition-all duration-300 group">
+                            <div class="w-11 h-11 rounded-xl bg-red-100 text-red-600 flex items-center justify-center mb-4 border border-red-200/60 shadow-xs group-hover:scale-110 transition-transform">
+                                <i data-lucide="folder-x" class="w-5.5 h-5.5"></i>
+                            </div>
+                            <h4 class="text-lg font-bold text-slate-900 mb-2 group-hover:text-red-700 transition-colors">Datos dispersos</h4>
+                            <p class="text-slate-600 text-sm leading-relaxed">Libretas, planillas sueltas, APIs desaprovechadas y softwares desintegrados o no customizables.</p>
+                        </div>
+                        <div class="bg-red-50/50 border border-red-100/80 p-6 rounded-2xl hover:border-red-200/80 hover:shadow-stitch-hover transition-all duration-300 group">
+                            <div class="w-11 h-11 rounded-xl bg-red-100 text-red-600 flex items-center justify-center mb-4 border border-red-200/60 shadow-xs group-hover:scale-110 transition-transform">
+                                <i data-lucide="alert-triangle" class="w-5.5 h-5.5"></i>
+                            </div>
+                            <h4 class="text-lg font-bold text-slate-900 mb-2 group-hover:text-red-700 transition-colors">Estandarización débil</h4>
+                            <p class="text-slate-600 text-sm leading-relaxed">Sin criterio único de tablas, formatos y nombres, integrar las fuentes se vuelve difícil.</p>
+                        </div>
+                        <div class="bg-red-50/50 border border-red-100/80 p-6 rounded-2xl hover:border-red-200/80 hover:shadow-stitch-hover transition-all duration-300 group">
+                            <div class="w-11 h-11 rounded-xl bg-red-100 text-red-600 flex items-center justify-center mb-4 border border-red-200/60 shadow-xs group-hover:scale-110 transition-transform">
+                                <i data-lucide="check-square-2" class="w-5.5 h-5.5 text-red-500"></i>
+                            </div>
+                            <h4 class="text-lg font-bold text-slate-900 mb-2 group-hover:text-red-700 transition-colors">Falta de validación</h4>
+                            <p class="text-slate-600 text-sm leading-relaxed">Registros incompletos o duplicados que llevan a malas interpretaciones y horas de corrección.</p>
+                        </div>
+                        <div class="bg-red-50/50 border border-red-100/80 p-6 rounded-2xl hover:border-red-200/80 hover:shadow-stitch-hover transition-all duration-300 group">
+                            <div class="w-11 h-11 rounded-xl bg-red-100 text-red-600 flex items-center justify-center mb-4 border border-red-200/60 shadow-xs group-hover:scale-110 transition-transform">
+                                <i data-lucide="link-2-off" class="w-5.5 h-5.5"></i>
+                            </div>
+                            <h4 class="text-lg font-bold text-slate-900 mb-2 group-hover:text-red-700 transition-colors">Integración limitada</h4>
+                            <p class="text-slate-600 text-sm leading-relaxed">Cruzar datos a mano entre fuentes cuesta tiempo y suma errores.</p>
+                        </div>
+                        <div class="bg-red-50/50 border border-red-100/80 p-6 rounded-2xl hover:border-red-200/80 hover:shadow-stitch-hover transition-all duration-300 group">
+                            <div class="w-11 h-11 rounded-xl bg-red-100 text-red-600 flex items-center justify-center mb-4 border border-red-200/60 shadow-xs group-hover:scale-110 transition-transform">
+                                <i data-lucide="refresh-cw" class="w-5.5 h-5.5"></i>
+                            </div>
+                            <h4 class="text-lg font-bold text-slate-900 mb-2 group-hover:text-red-700 transition-colors">Procesos manuales automatizables</h4>
+                            <p class="text-slate-600 text-sm leading-relaxed">Tareas repetitivas que restan tiempo, generan errores y desmotivan al equipo.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- SLIDE 2: Propuesta de Valor -->
+                <div class="carousel-slide hidden" id="slide-1">
+                    <h2 class="text-3xl sm:text-4xl font-black text-slate-900 text-center mb-10 tracking-tight">Propuesta de Valor</h2>
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                        <div class="bg-white p-6 rounded-2xl border border-slate-200/80 shadow-stitch hover:shadow-stitch-hover hover:border-brand-300 transition-all duration-300 flex flex-col group">
+                            <div class="flex items-center justify-between mb-5">
+                                <div class="w-11 h-11 rounded-xl bg-brand-600 text-white flex items-center justify-center font-extrabold text-lg shadow-md shadow-brand-600/20 group-hover:scale-110 transition-transform">1</div>
+                                <div class="w-10 h-10 rounded-xl bg-brand-50 text-brand-700 flex items-center justify-center border border-brand-200/60 shadow-xs">
+                                    <i data-lucide="database-zap" class="w-5 h-5"></i>
+                                </div>
+                            </div>
+                            <h3 class="text-lg font-bold text-slate-900 mb-2">Relevamiento y estructuración de datos</h3>
+                            <p class="text-brand-700 font-bold text-xs mb-4 uppercase tracking-wider">Organizamos lo que ya tenés</p>
+                            <ul class="space-y-3 text-slate-600 text-xs">
+                                <li class="flex items-start gap-2.5"><i data-lucide="check-circle-2" class="w-4 h-4 text-brand-600 shrink-0 mt-0.5"></i><span><strong>Limpieza y depuración:</strong> eliminamos errores, duplicados y registros incompletos.</span></li>
+                                <li class="flex items-start gap-2.5"><i data-lucide="check-circle-2" class="w-4 h-4 text-brand-600 shrink-0 mt-0.5"></i><span><strong>Estandarización:</strong> unificamos formatos, nombres y criterios para que todo hable el mismo idioma.</span></li>
+                                <li class="flex items-start gap-2.5"><i data-lucide="check-circle-2" class="w-4 h-4 text-brand-600 shrink-0 mt-0.5"></i><span><strong>Reglas de validación:</strong> para evitar tener que limpiar los datos una y otra vez.</span></li>
+                            </ul>
+                        </div>
+                        <div class="bg-white p-6 rounded-2xl border border-slate-200/80 shadow-stitch hover:shadow-stitch-hover hover:border-brand-300 transition-all duration-300 flex flex-col group">
+                            <div class="flex items-center justify-between mb-5">
+                                <div class="w-11 h-11 rounded-xl bg-brand-600 text-white flex items-center justify-center font-extrabold text-lg shadow-md shadow-brand-600/20 group-hover:scale-110 transition-transform">2</div>
+                                <div class="w-10 h-10 rounded-xl bg-brand-50 text-brand-700 flex items-center justify-center border border-brand-200/60 shadow-xs">
+                                    <i data-lucide="smartphone" class="w-5 h-5"></i>
+                                </div>
+                            </div>
+                            <h3 class="text-lg font-bold text-slate-900 mb-2">Captura a campo (offline)</h3>
+                            <p class="text-brand-700 font-bold text-xs mb-4 uppercase tracking-wider">Registro ágil desde el origen, sin depender de señal</p>
+                            <ul class="space-y-3 text-slate-600 text-xs">
+                                <li class="flex items-start gap-2.5"><i data-lucide="check-circle-2" class="w-4 h-4 text-brand-600 shrink-0 mt-0.5"></i><span><strong>Apps a medida:</strong> desarrollo de apps mobile para registrar eventos, muestras y datos de campo.</span></li>
+                                <li class="flex items-start gap-2.5"><i data-lucide="check-circle-2" class="w-4 h-4 text-brand-600 shrink-0 mt-0.5"></i><span><strong>Modo offline:</strong> la app funciona sin conexión y sincroniza cuando hay señal.</span></li>
+                                <li class="flex items-start gap-2.5"><i data-lucide="check-circle-2" class="w-4 h-4 text-brand-600 shrink-0 mt-0.5"></i><span><strong>UX pensada para el usuario:</strong> cargas rápidas, con precarga de datos frecuentes.</span></li>
+                                <li class="flex items-start gap-2.5"><i data-lucide="check-circle-2" class="w-4 h-4 text-brand-600 shrink-0 mt-0.5"></i><span><strong>Aprovechamiento del smartphone:</strong> GPS, cámara, NFC y demás sensores disponibles.</span></li>
+                            </ul>
+                        </div>
+                        <div class="bg-white p-6 rounded-2xl border border-slate-200/80 shadow-stitch hover:shadow-stitch-hover hover:border-brand-300 transition-all duration-300 flex flex-col group">
+                            <div class="flex items-center justify-between mb-5">
+                                <div class="w-11 h-11 rounded-xl bg-brand-600 text-white flex items-center justify-center font-extrabold text-lg shadow-md shadow-brand-600/20 group-hover:scale-110 transition-transform">3</div>
+                                <div class="w-10 h-10 rounded-xl bg-brand-50 text-brand-700 flex items-center justify-center border border-brand-200/60 shadow-xs">
+                                    <i data-lucide="network" class="w-5 h-5"></i>
+                                </div>
+                            </div>
+                            <h3 class="text-lg font-bold text-slate-900 mb-2">Integración de fuentes disponibles</h3>
+                            <p class="text-brand-700 font-bold text-xs mb-4 uppercase tracking-wider">Todos tus datos, un solo lugar</p>
+                            <ul class="space-y-3 text-slate-600 text-xs">
+                                <li class="flex items-start gap-2.5"><i data-lucide="check-circle-2" class="w-4 h-4 text-brand-600 shrink-0 mt-0.5"></i><span><strong>Importación automática:</strong> conectamos las fuentes que ya tenés disponibles.</span></li>
+                                <li class="flex items-start gap-2.5"><i data-lucide="check-circle-2" class="w-4 h-4 text-brand-600 shrink-0 mt-0.5"></i><span><strong>Data warehouse central:</strong> consolidamos todo en una base única, con historial y trazabilidad.</span></li>
+                                <li class="flex items-start gap-2.5"><i data-lucide="check-circle-2" class="w-4 h-4 text-brand-600 shrink-0 mt-0.5"></i><span><strong>Cruce entre fuentes:</strong> vinculamos datos de distintos orígenes (ej. clima + cosecha + campo) para analizarlos en conjunto.</span></li>
+                            </ul>
+                        </div>
+                        <div class="bg-white p-6 rounded-2xl border border-slate-200/80 shadow-stitch hover:shadow-stitch-hover hover:border-brand-300 transition-all duration-300 flex flex-col group">
+                            <div class="flex items-center justify-between mb-5">
+                                <div class="w-11 h-11 rounded-xl bg-brand-600 text-white flex items-center justify-center font-extrabold text-lg shadow-md shadow-brand-600/20 group-hover:scale-110 transition-transform">4</div>
+                                <div class="w-10 h-10 rounded-xl bg-brand-50 text-brand-700 flex items-center justify-center border border-brand-200/60 shadow-xs">
+                                    <i data-lucide="layout-dashboard" class="w-5 h-5"></i>
+                                </div>
+                            </div>
+                            <h3 class="text-lg font-bold text-slate-900 mb-2">Tableros de control y alertas personalizadas</h3>
+                            <p class="text-brand-700 font-bold text-xs mb-4 uppercase tracking-wider">Visualización clara de tus KPIs, en tiempo real</p>
+                            <ul class="space-y-3 text-slate-600 text-xs">
+                                <li class="flex items-start gap-2.5"><i data-lucide="check-circle-2" class="w-4 h-4 text-brand-600 shrink-0 mt-0.5"></i><span><strong>Definición estratégica:</strong> junto a tus equipos definimos los KPIs necesarios para monitorear procesos.</span></li>
+                                <li class="flex items-start gap-2.5"><i data-lucide="check-circle-2" class="w-4 h-4 text-brand-600 shrink-0 mt-0.5"></i><span><strong>Actualización en tiempo real:</strong> la información siempre al día.</span></li>
+                                <li class="flex items-start gap-2.5"><i data-lucide="check-circle-2" class="w-4 h-4 text-brand-600 shrink-0 mt-0.5"></i><span><strong>Diseño intuitivo:</strong> indicadores y gráficos para detectar desvíos rápido.</span></li>
+                                <li class="flex items-start gap-2.5"><i data-lucide="check-circle-2" class="w-4 h-4 text-brand-600 shrink-0 mt-0.5"></i><span><strong>Alertas personalizadas:</strong> configuradas según el rol y los umbrales que definan.</span></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- SLIDE 3: Planes a la Medida -->
+                <div class="carousel-slide hidden" id="slide-2">
+                    <h2 class="text-3xl sm:text-4xl font-black text-slate-900 text-center mb-10 tracking-tight">Planes a la Medida de tu Necesidad</h2>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 items-stretch pt-2">
+                        <!-- Plan Básico -->
+                        <div class="bg-white rounded-3xl p-6 border border-slate-200/80 shadow-stitch flex flex-col hover:border-brand-300 hover:shadow-stitch-hover transition-all duration-300 group">
+                            <div class="flex items-center justify-between mb-4">
+                                <div class="text-brand-600 font-extrabold text-xs uppercase tracking-wider">Plan Básico</div>
+                                <div class="w-10 h-10 rounded-xl bg-brand-50 text-brand-700 flex items-center justify-center border border-brand-200/60 shadow-xs group-hover:scale-110 transition-transform">
+                                    <i data-lucide="bar-chart-3" class="w-5 h-5"></i>
+                                </div>
+                            </div>
+                            <h3 class="text-2xl font-black text-slate-900 mb-1 tracking-tight">Visualización &amp; Alertas</h3>
+                            <p class="text-sm text-slate-500 mb-4 leading-relaxed">Para equipos con datos ya centralizados que quieren monitorear sus KPIs en tiempo real.</p>
+                            <div class="text-2xl font-black text-slate-900 mb-4">Desde USD 200 <span class="text-xs font-semibold text-slate-400">/ proyecto</span></div>
+                            <div class="border-t border-slate-100 pt-5 space-y-3 mt-auto">
+                                <div class="flex items-start gap-3 text-sm text-slate-700"><i data-lucide="check" class="w-5 h-5 text-brand-600 shrink-0 mt-0.5"></i><span><strong>Definición de KPIs:</strong> identificamos y configuramos los indicadores clave de tu operación.</span></div>
+                                <div class="flex items-start gap-3 text-sm text-slate-700"><i data-lucide="check" class="w-5 h-5 text-brand-600 shrink-0 mt-0.5"></i><span><strong>Tableros de Control:</strong> un dashboard con la información actualizada y organizada por rol.</span></div>
+                                <div class="flex items-start gap-3 text-sm text-slate-700"><i data-lucide="check" class="w-5 h-5 text-brand-600 shrink-0 mt-0.5"></i><span><strong>Alertas Automáticas:</strong> notificaciones cuando un indicador sale de rango, según reglas que definimos juntos.</span></div>
+                            </div>
+                        </div>
+                        <!-- Plan Medio (Destacado Stitch Style) -->
+                        <div class="bg-gradient-to-br from-brand-900 via-brand-800 to-slate-900 rounded-3xl p-6 pt-8 border-2 border-brand-500 text-white flex flex-col shadow-2xl shadow-brand-900/30 relative transform hover:-translate-y-1 transition-all duration-300 group">
+                            <div class="absolute -top-3.5 left-1/2 -translate-x-1/2 bg-brand-accent text-slate-950 text-[10px] font-black uppercase tracking-widest px-4 py-1.5 rounded-full shadow-lg shadow-brand-accent/30 z-20 whitespace-nowrap">Más Solicitado</div>
+                            <div class="flex items-center justify-between mb-4 mt-1">
+                                <div class="text-brand-300 font-extrabold text-xs uppercase tracking-wider">Plan Medio</div>
+                                <div class="w-10 h-10 rounded-xl bg-white/10 text-brand-accent flex items-center justify-center border border-white/10 shadow-xs group-hover:scale-110 transition-transform">
+                                    <i data-lucide="layers" class="w-5 h-5"></i>
+                                </div>
+                            </div>
+                            <h3 class="text-2xl font-black text-white mb-1 tracking-tight">Transformación &amp; Integración de Datos</h3>
+                            <p class="text-sm text-brand-100/90 mb-4 leading-relaxed">Para empresas que ya relevan datos, pero en planillas o sistemas sueltos que no se cruzan entre sí.</p>
+                            <div class="text-2xl font-black text-white mb-4">Desde USD 500 <span class="text-xs font-medium text-brand-200/80">/ proyecto</span></div>
+                            <div class="border-t border-brand-700/60 pt-5 space-y-3 mt-auto">
+                                <div class="flex items-start gap-3 text-sm text-brand-50 font-bold"><i data-lucide="check" class="w-5 h-5 text-brand-accent shrink-0 mt-0.5"></i><span>Incluye el Plan Básico, más:</span></div>
+                                <div class="flex items-start gap-3 text-sm text-brand-50"><i data-lucide="check" class="w-5 h-5 text-brand-accent shrink-0 mt-0.5"></i><span><strong class="text-white">Limpieza de Datos:</strong> corrección de errores, duplicados e inconsistencias en lo ya cargado.</span></div>
+                                <div class="flex items-start gap-3 text-sm text-brand-50"><i data-lucide="check" class="w-5 h-5 text-brand-accent shrink-0 mt-0.5"></i><span><strong class="text-white">Estandarización:</strong> mismos formatos y criterios de carga en todas las fuentes.</span></div>
+                                <div class="flex items-start gap-3 text-sm text-brand-50"><i data-lucide="check" class="w-5 h-5 text-brand-accent shrink-0 mt-0.5"></i><span><strong class="text-white">Integración de Fuentes:</strong> conectamos planillas, apps y sistemas en un solo flujo de datos.</span></div>
+                            </div>
+                        </div>
+                        <!-- Plan Avanzado -->
+                        <div class="bg-white rounded-3xl p-6 border border-slate-200/80 shadow-stitch flex flex-col hover:border-brand-300 hover:shadow-stitch-hover transition-all duration-300 group">
+                            <div class="flex items-center justify-between mb-4">
+                                <div class="text-brand-600 font-extrabold text-xs uppercase tracking-wider">Plan Avanzado</div>
+                                <div class="w-10 h-10 rounded-xl bg-brand-50 text-brand-700 flex items-center justify-center border border-brand-200/60 shadow-xs group-hover:scale-110 transition-transform">
+                                    <i data-lucide="server" class="w-5 h-5"></i>
+                                </div>
+                            </div>
+                            <h3 class="text-2xl font-black text-slate-900 mb-1 tracking-tight">Apps de Campo &amp; Data Warehouse</h3>
+                            <p class="text-sm text-slate-500 mb-4 leading-relaxed">Para organizaciones que quieren digitalizar la carga de datos en origen (campo, planta) y centralizar años de información histórica.</p>
+                            <div class="text-2xl font-black text-slate-900 mb-4">Desde USD 900 <span class="text-xs font-semibold text-slate-400">/ proyecto</span></div>
+                            <div class="border-t border-slate-100 pt-5 space-y-3 mt-auto">
+                                <div class="flex items-start gap-3 text-sm text-slate-700 font-bold"><i data-lucide="check" class="w-5 h-5 text-brand-600 shrink-0 mt-0.5"></i><span>Incluye el Plan Medio, más:</span></div>
+                                <div class="flex items-start gap-3 text-sm text-slate-700"><i data-lucide="check" class="w-5 h-5 text-brand-600 shrink-0 mt-0.5"></i><span><strong>Apps de Relevamiento a Medida:</strong> desarrollo de apps para cargar datos directo desde el campo, reemplazando planillas o mensajes de WhatsApp.</span></div>
+                                <div class="flex items-start gap-3 text-sm text-slate-700"><i data-lucide="check" class="w-5 h-5 text-brand-600 shrink-0 mt-0.5"></i><span><strong>Data Warehouse:</strong> una base centralizada donde consolidamos el historial de datos de la empresa, para consultarlo o analizarlo cuando lo necesiten.</span></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div><!-- /slides wrapper relative -->
+
+        </div>
+    </section>
+
+    <!-- SECTION: SOLUCIONES AGTECH (AGDP CORVUS + PROVEEDORES) -->
+    <section id="agtech" class="pt-6 pb-20 bg-slate-100/60 relative overflow-hidden">
+
+        <!-- Background accent -->
+        <div class="absolute top-0 right-0 w-96 h-96 bg-brand-200/40 rounded-full blur-3xl pointer-events-none"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="text-center max-w-3xl mx-auto mb-14">
+                <div class="inline-flex items-center gap-2 bg-brand-100 text-brand-800 px-3.5 py-1.5 rounded-full text-xs font-extrabold uppercase tracking-wider mb-3 shadow-xs">
+                    <i data-lucide="cpu" class="w-3.5 h-3.5"></i>
+                    <span>Ecosistema Tecnológico</span>
+                </div>
+                <h2 class="text-3xl sm:text-4xl font-black text-slate-900 tracking-tight">Soluciones AgTech</h2>
+            </div>
+
+            <!-- Featured Product Card: AGDP Corvus -->
+            <div class="bg-white rounded-3xl border border-slate-200/80 p-8 sm:p-12 shadow-stitch hover:shadow-stitch-hover transition-all duration-300 mb-12">
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+                    <div class="lg:col-span-7 space-y-6">
+                        <!-- Logos AGDP & Corvus -->
+                        <div class="flex items-center gap-5 bg-slate-50/80 p-3.5 px-5 rounded-2xl border border-slate-200/80 w-fit shadow-xs">
+                            <img src="logo-agdp.png" alt="AGDP Logo" class="h-10 sm:h-12 w-auto object-contain">
+                            <div class="w-px h-7 bg-slate-300/80"></div>
+                            <img src="logo-corvus.png" alt="Corvus Logo" class="h-10 sm:h-12 w-auto object-contain">
+                        </div>
+
+                        <h3 class="text-3xl sm:text-4xl font-black text-slate-900 tracking-tight">Control Total de Cosecha con AGDP</h3>
+                        
+                        <p class="text-slate-600 text-base leading-relaxed font-normal">
+                            Transformá el control de tu cosecha, transporte y acopio. AGDP brinda trazabilidad absoluta e instantánea sobre cada descarga de granos efectuada.
+                        </p>
+
+                        <!-- Bullets -->
+                        <div class="space-y-3.5 pt-2">
+                            <div class="flex items-start gap-3.5">
+                                <div class="w-6 h-6 rounded-full bg-brand-100 text-brand-700 flex items-center justify-center shrink-0 mt-0.5 shadow-xs">
+                                    <i data-lucide="check" class="w-4 h-4"></i>
+                                </div>
+                                <span class="text-sm text-slate-700"><strong>PESAJE Y REGISTRO AUTOMÁTICO</strong> de descargas por tolva.</span>
+                            </div>
+
+                            <div class="flex items-start gap-3.5">
+                                <div class="w-6 h-6 rounded-full bg-brand-100 text-brand-700 flex items-center justify-center shrink-0 mt-0.5 shadow-xs">
+                                    <i data-lucide="check" class="w-4 h-4"></i>
+                                </div>
+                                <span class="text-sm text-slate-700"><strong>KILOS POR LOTE Y CAMIÓN</strong> información detallada de cada carga.</span>
+                            </div>
+
+                            <div class="flex items-start gap-3.5">
+                                <div class="w-6 h-6 rounded-full bg-brand-100 text-brand-700 flex items-center justify-center shrink-0 mt-0.5 shadow-xs">
+                                    <i data-lucide="check" class="w-4 h-4"></i>
+                                </div>
+                                <span class="text-sm text-slate-700"><strong>STOCK POR ACOPIO</strong> disponible en tiempo real.</span>
+                            </div>
+
+                            <div class="flex items-start gap-3.5">
+                                <div class="w-6 h-6 rounded-full bg-brand-100 text-brand-700 flex items-center justify-center shrink-0 mt-0.5 shadow-xs">
+                                    <i data-lucide="check" class="w-4 h-4"></i>
+                                </div>
+                                <span class="text-sm text-slate-700"><strong>SEGUIMIENTO DE RINDE</strong> total y promedio por lote.</span>
+                            </div>
+
+                            <div class="flex items-start gap-3.5">
+                                <div class="w-6 h-6 rounded-full bg-brand-100 text-brand-700 flex items-center justify-center shrink-0 mt-0.5 shadow-xs">
+                                    <i data-lucide="refresh-cw" class="w-3.5 h-3.5"></i>
+                                </div>
+                                <span class="text-sm text-slate-700"><strong>DATOS EN TIEMPO REAL,</strong> estés donde estés.</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Visual: AGDP App Image -->
+                    <div class="lg:col-span-5 flex items-center justify-center">
+                        <div class="relative group">
+                            <div class="absolute -inset-1 bg-gradient-to-r from-brand-600 to-brand-accent rounded-3xl blur-lg opacity-25 group-hover:opacity-40 transition-opacity"></div>
+                            <img src="agdp-app.png" alt="AGDP App — Control de cosecha" class="relative w-full max-w-md object-contain drop-shadow-2xl">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Provider Partnership Callout Banner -->
+            <div class="bg-gradient-to-r from-brand-900 via-brand-800 to-slate-900 rounded-3xl p-8 sm:p-10 border border-brand-700/60 flex flex-col md:flex-row items-center justify-between gap-6 shadow-2xl relative overflow-hidden">
+                <div class="absolute top-0 right-0 w-64 h-64 bg-brand-accent/10 rounded-full blur-2xl pointer-events-none"></div>
+                <div class="flex items-center gap-5 relative z-10">
+                    <div class="w-14 h-14 rounded-2xl bg-brand-500/20 text-brand-accent flex items-center justify-center shrink-0 border border-brand-500/30 shadow-inner">
+                        <i data-lucide="handshake" class="w-7 h-7"></i>
+                    </div>
+                    <div>
+                        <h4 class="text-xl font-black text-white tracking-tight">¿Desarrollás tecnología para el agro?</h4>
+                        <p class="text-sm text-slate-300 mt-1 max-w-2xl font-normal leading-relaxed">
+                            Buscamos ampliar nuestro portfolio con soluciones innovadoras. Si te interesa que <strong>LumenAgro</strong> te ayude a llegar a nuevos productores, hablemos.
+                        </p>
+                    </div>
+                </div>
+                <a href="#contacto" data-subject="Alianza Comercial AgTech" class="partner-btn shrink-0 bg-white hover:bg-slate-100 text-slate-950 font-black px-7 py-3.5 rounded-2xl transition-all text-sm shadow-lg hover:shadow-white/20 active:scale-95 relative z-10">
+                    Proponer mi Tecnología
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION: CONFÍAN EN NOSOTROS (LOGOS CLIENTES) -->
+    <section id="confian" class="pt-6 pb-20 bg-white">
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-14">
+                <div class="inline-flex items-center gap-2 bg-slate-100 text-slate-700 px-3.5 py-1.5 rounded-full text-xs font-extrabold uppercase tracking-wider mb-3">
+                    <i data-lucide="shield-check" class="w-3.5 h-3.5 text-brand-600"></i>
+                    <span>Respaldo Operativo</span>
+                </div>
+                <h2 class="text-3xl sm:text-4xl font-black text-slate-900 tracking-tight">Confían en nosotros</h2>
+                <p class="text-slate-600 mt-3 text-base sm:text-lg">
+                    Empresas del sector agroindustrial que potencian su gestión con nuestras soluciones.
+                </p>
+            </div>
+
+            <!-- Logos Grid -->
+            <div class="bg-slate-50/60 rounded-3xl border border-slate-200/80 p-8 sm:p-12 shadow-stitch">
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12 items-center justify-items-center">
+                    
+                    <!-- Citrusvil -->
+                    <div class="w-full flex items-center justify-center p-4 h-24 hover:scale-105 transition-transform duration-300">
+                        <img src="client-citrusvil.png" alt="Citrusvil" class="max-h-16 w-auto max-w-full object-contain grayscale opacity-70 hover:grayscale-0 hover:opacity-100 transition-all">
+                    </div>
+
+                    <!-- El Hinojo S.A. -->
+                    <div class="w-full flex items-center justify-center p-4 h-24 hover:scale-105 transition-transform duration-300">
+                        <img src="client-elhinojo.png" alt="El Hinojo S.A." class="max-h-16 w-auto max-w-full object-contain grayscale opacity-70 hover:grayscale-0 hover:opacity-100 transition-all">
+                    </div>
+
+                    <!-- Bellamar Estancias S.A. -->
+                    <div class="w-full flex items-center justify-center p-4 h-24 hover:scale-105 transition-transform duration-300">
+                        <img src="client-bellamar.png" alt="Bellamar Estancias S.A." class="max-h-16 w-auto max-w-full object-contain grayscale opacity-70 hover:grayscale-0 hover:opacity-100 transition-all">
+                    </div>
+
+                    <!-- Rucamalen -->
+                    <div class="w-full flex items-center justify-center p-4 h-24 hover:scale-105 transition-transform duration-300">
+                        <img src="client-rucamalen.png" alt="Rucamalen" class="max-h-12 w-auto max-w-full object-contain grayscale opacity-70 hover:grayscale-0 hover:opacity-100 transition-all">
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION: CONTACTO (FORM + WHATSAPP INTEGRATION) -->
+    <section id="contacto" class="py-20 bg-slate-50/50 border-t border-slate-200/60">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+                <!-- Left Info Box -->
+                <div class="lg:col-span-5 space-y-6">
+                    <div class="inline-flex items-center gap-2 bg-brand-100 text-brand-800 px-3.5 py-1.5 rounded-full text-xs font-extrabold uppercase tracking-wider shadow-xs">
+                        <i data-lucide="mail" class="w-3.5 h-3.5"></i>
+                        <span>Contacto Directo</span>
+                    </div>
+
+                    <h2 class="text-3xl sm:text-4xl font-black text-slate-900 tracking-tight">
+                        Hablemos sobre tus desafíos
+                    </h2>
+
+                    <p class="text-slate-600 text-base leading-relaxed">
+                        Agendemos un llamado o reunión para evaluar el estado actual de tus datos o consultas sobre alguna solución AgTech que te interese.
+                    </p>
+
+                    <!-- Redes Sociales -->
+                    <div class="pt-4 border-t border-slate-200/80">
+                        <span class="block text-xs font-extrabold text-slate-500 uppercase tracking-wider mb-3">Seguinos en nuestras redes</span>
+                        <div class="flex items-center gap-3">
+                            <!-- LinkedIn -->
+                            <a href="https://www.linkedin.com/company/lumenagro/?viewAsMember=true" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn LumenAgro" 
+                               class="w-11 h-11 rounded-xl bg-white border border-slate-200 text-slate-700 hover:text-brand-600 hover:border-brand-500 hover:shadow-md hover:scale-105 active:scale-95 transition-all flex items-center justify-center group">
+                                <svg class="w-5 h-5 fill-current transition-transform group-hover:scale-110" viewBox="0 0 24 24">
+                                    <path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-1.3.7-1.9 1.62-1.9.96 0 1.33.68 1.33 1.9v4.93h2.79M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/>
+                                </svg>
+                            </a>
+                            <!-- Instagram -->
+                            <a href="https://www.instagram.com/lumenagro/" target="_blank" rel="noopener noreferrer" aria-label="Instagram LumenAgro" 
+                               class="w-11 h-11 rounded-xl bg-white border border-slate-200 text-slate-700 hover:text-brand-600 hover:border-brand-500 hover:shadow-md hover:scale-105 active:scale-95 transition-all flex items-center justify-center group">
+                                <svg class="w-5 h-5 fill-none stroke-current stroke-2 stroke-round stroke-linejoin-round transition-transform group-hover:scale-110" viewBox="0 0 24 24">
+                                    <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                                    <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                                    <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                                </svg>
+                            </a>
+                            <!-- YouTube -->
+                            <a href="https://www.youtube.com/@LumenAgro" target="_blank" rel="noopener noreferrer" aria-label="YouTube LumenAgro" 
+                               class="w-11 h-11 rounded-xl bg-white border border-slate-200 text-slate-700 hover:text-brand-600 hover:border-brand-500 hover:shadow-md hover:scale-105 active:scale-95 transition-all flex items-center justify-center group">
+                                <svg class="w-5 h-5 fill-current transition-transform group-hover:scale-110" viewBox="0 0 24 24">
+                                    <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Form Box (Stitch Card Style) -->
+                <div class="lg:col-span-7 bg-white p-8 sm:p-10 rounded-3xl border border-slate-200/80 shadow-stitch hover:shadow-stitch-hover transition-all duration-300">
+                    <form id="contact-form" class="space-y-5">
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                            <div>
+                                <label for="nombre" class="block text-xs font-extrabold text-slate-700 uppercase tracking-wider mb-2">Nombre completo *</label>
+                                <input type="text" id="nombre" required placeholder="Tu nombre" class="w-full bg-slate-50/70 border border-slate-200 rounded-xl px-4 py-3.5 text-sm text-slate-900 focus:outline-none focus:bg-white focus:ring-2 focus:ring-brand-600 focus:border-brand-600 transition-all">
+                            </div>
+                            <div>
+                                <label for="empresa" class="block text-xs font-extrabold text-slate-700 uppercase tracking-wider mb-2">Empresa / Productor</label>
+                                <input type="text" id="empresa" placeholder="Nombre de tu empresa o establecimiento" class="w-full bg-slate-50/70 border border-slate-200 rounded-xl px-4 py-3.5 text-sm text-slate-900 focus:outline-none focus:bg-white focus:ring-2 focus:ring-brand-600 focus:border-brand-600 transition-all">
+                            </div>
+                        </div>
+
+                        <div>
+                            <label for="servicio" class="block text-xs font-extrabold text-slate-700 uppercase tracking-wider mb-2">Área de interés *</label>
+                            <select id="servicio" required class="w-full bg-slate-50/70 border border-slate-200 rounded-xl px-4 py-3.5 text-sm text-slate-900 focus:outline-none focus:bg-white focus:ring-2 focus:ring-brand-600 focus:border-brand-600 transition-all">
+                                <option value="Consultoría en Datos">Consultoría en Datos</option>
+                                <option value="Solución AgTech">Solución AgTech</option>
+                                <option value="Alianza Comercial">Alianza Comercial</option>
+                                <option value="Consulta General">Consulta General</option>
+                            </select>
+                        </div>
+
+                        <div>
+                            <label for="mensaje" class="block text-xs font-extrabold text-slate-700 uppercase tracking-wider mb-2">Mensaje / Detalle</label>
+                            <textarea id="mensaje" rows="4" placeholder="Contanos brevemente qué necesitas resolver..." class="w-full bg-slate-50/70 border border-slate-200 rounded-xl px-4 py-3.5 text-sm text-slate-900 focus:outline-none focus:bg-white focus:ring-2 focus:ring-brand-600 focus:border-brand-600 transition-all"></textarea>
+                        </div>
+
+                        <button type="submit" class="w-full bg-brand-600 hover:bg-brand-700 text-white font-black py-4 px-6 rounded-xl shadow-lg shadow-brand-600/25 hover:shadow-xl hover:shadow-brand-600/35 active:scale-98 transition-all flex items-center justify-center gap-2.5 group text-base border border-brand-500/30">
+                            <i data-lucide="send" class="w-5 h-5 group-hover:translate-x-1 transition-transform"></i>
+                            <span>Enviar Consulta por WhatsApp</span>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="bg-gradient-to-r from-brand-900 via-brand-800 to-slate-900 text-slate-300 py-12 border-t border-brand-700/50 shadow-2xl relative overflow-hidden">
+        <!-- Subtle glow accent -->
+        <div class="absolute bottom-0 left-1/4 w-96 h-32 bg-brand-500/10 rounded-full blur-3xl pointer-events-none"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between gap-6 relative z-10">
+            <div class="flex flex-col items-center md:items-start gap-1">
+                <img src="logo-transparent.png" alt="LumenAgro" class="h-10 w-auto brightness-0 invert opacity-95">
+                <span class="text-[9px] font-extrabold uppercase tracking-widest text-brand-300/90 mt-0.5">
+                    El faro que tu campo necesita
+                </span>
+            </div>
+
+            <p class="text-xs text-brand-100/70 text-center md:text-left font-medium">
+                © 2026 LumenAgro. Todos los derechos reservados. Comercialización AgTech & Consultoría en Datos.
+            </p>
+
+            <div class="flex items-center gap-5">
+                <!-- Social links footer -->
+                <div class="flex items-center gap-3">
+                    <a href="https://www.linkedin.com/company/lumenagro/?viewAsMember=true" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn LumenAgro" 
+                       class="text-brand-300 hover:text-white transition-colors p-1.5 rounded-lg hover:bg-white/10">
+                        <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24">
+                            <path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-1.3.7-1.9 1.62-1.9.96 0 1.33.68 1.33 1.9v4.93h2.79M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/>
+                        </svg>
+                    </a>
+                    <a href="https://www.instagram.com/lumenagro/" target="_blank" rel="noopener noreferrer" aria-label="Instagram LumenAgro" 
+                       class="text-brand-300 hover:text-white transition-colors p-1.5 rounded-lg hover:bg-white/10">
+                        <svg class="w-5 h-5 fill-none stroke-current stroke-2 stroke-round stroke-linejoin-round" viewBox="0 0 24 24">
+                            <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                            <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                            <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                        </svg>
+                    </a>
+                    <a href="https://www.youtube.com/@LumenAgro" target="_blank" rel="noopener noreferrer" aria-label="YouTube LumenAgro" 
+                       class="text-brand-300 hover:text-white transition-colors p-1.5 rounded-lg hover:bg-white/10">
+                        <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24">
+                            <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+                        </svg>
+                    </a>
+                </div>
+
+                <a href="#inicio" class="text-xs text-brand-300 hover:text-white font-bold flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 border border-white/10 hover:bg-white/10 transition-all hover:scale-105 active:scale-95 shadow-sm">
+                    <span>Volver arriba</span>
+                    <i data-lucide="arrow-up" class="w-3.5 h-3.5"></i>
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Floating WhatsApp Button -->
+    <a href="http://wa.me/+5491167909300" target="_blank" rel="noopener noreferrer" aria-label="Contacto por WhatsApp"
+        class="fixed bottom-6 right-6 z-50 bg-[#25D366] hover:bg-[#20ba57] text-white p-3.5 rounded-full shadow-2xl hover:shadow-[#25D366]/40 hover:scale-110 active:scale-95 transition-all duration-300 flex items-center justify-center border border-white/20 group">
+        <i data-lucide="message-circle" class="w-7 h-7"></i>
+        <span class="max-w-0 overflow-hidden whitespace-nowrap group-hover:max-w-xs transition-all duration-500 ease-in-out font-bold text-xs pl-0 group-hover:pl-2">
+            Escribinos por WhatsApp
+        </span>
+    </a>
+
+    <!-- Scripts -->
+    <script src="script.js"></script>
+    <script>
+        // Initialize Lucide Icons
+        lucide.createIcons();
+    </script>
+</body>
+</html>
